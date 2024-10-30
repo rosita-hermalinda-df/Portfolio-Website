@@ -14,9 +14,8 @@
             background-size: cover; /* Agar gambar menutupi seluruh layar */
             background-position: center; /* Agar gambar terletak di tengah */
         }
-        /* Initially hide the background image */
-        #backgroundImage {
-            display: none;
+        /* Video background styling */
+        #videoBackground {
             position: fixed;
             top: 0;
             left: 0;
@@ -24,6 +23,7 @@
             height: 100vh;
             object-fit: cover;
             z-index: -1;
+            display: none;
         }
         /* Keep the background style of the login page */
         #loginForm {
@@ -40,8 +40,8 @@
             // Validasi login
             if (username === "rosita@gmail.com" && password === "123") {
                 document.getElementById("loginForm").style.display = "none"; // Sembunyikan form login
-                document.getElementById("backgroundImage").style.display = "block"; // Tampilkan foto sebagai background
-                document.getElementById("backgroundAudio").play(); // Memainkan audio setelah login berhasil
+                document.getElementById("videoBackground").style.display = "block"; // Tampilkan video sebagai background
+                document.getElementById("backgroundAudio").play(); // Memainkan audio bersamaan dengan video
             } else {
                 alert("Invalid username or password!");
             }
@@ -54,7 +54,7 @@
         <div class="flex justify-center mb-8">
             <div class="bg-transparent p-4 rounded-lg">
                 <!-- Ganti URL gambar di sini -->
-                <img alt="Logo" class="w-16 h-16" src="img/login-bg2.jpeg" width="100" height="100"/>
+                <img alt="Logo" class="w-16 h-16" src="img/pp5.jpg" width="100" height="100"/>
             </div>
         </div>
         <!-- Login Form -->
@@ -80,8 +80,16 @@
         <p class="text-center text-gray-500 text-sm mt-8">By Rosita Hermalinda Dwi Febrianti</p>
     </div>
 
-    <!-- Image Background (Initially Hidden) -->
-    <img id="backgroundImage" src="img/login-success.jpeg" alt="Success Background Image" />
+    <!-- Video Background (Initially Hidden) -->
+    <video id="videoBackground" autoplay loop muted>
+        <source src="video/login.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
+    <!-- Audio Element, Initially Hidden (Autoplay After Login) -->
+    <audio id="backgroundAudio" autoplay loop>
+        <source src="audio/login.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 </body>
 </html>
