@@ -23,7 +23,7 @@
             height: 100vh;
             object-fit: cover;
             z-index: -1;
-            display: none;
+            display: none; /* Awalnya disembunyikan */
         }
         /* Keep the background style of the login page */
         #loginForm {
@@ -41,7 +41,13 @@
             if (username === "rosita@gmail.com" && password === "123") {
                 document.getElementById("loginForm").style.display = "none"; // Sembunyikan form login
                 document.getElementById("videoBackground").style.display = "block"; // Tampilkan video sebagai background
-                document.getElementById("backgroundAudio").play(); // Memainkan audio bersamaan dengan video
+                
+                // Memainkan audio dan video bersamaan dengan login
+                const video = document.getElementById("videoBackground");
+                const audio = document.getElementById("backgroundAudio");
+                
+                video.play(); // Memainkan video
+                audio.play(); // Memainkan audio
             } else {
                 alert("Invalid username or password!");
             }
@@ -87,7 +93,7 @@
     </video>
 
     <!-- Audio Element, Initially Hidden (Autoplay After Login) -->
-    <audio id="backgroundAudio" autoplay loop>
+    <audio id="backgroundAudio" loop>
         <source src="audio/login.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
