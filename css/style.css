@@ -1102,3 +1102,36 @@ a:focus {
     color: #222222;
 }
 
+.wrapper {
+    display: flex; /* Use flexbox to align sidebar and content */
+}
+
+.sidebar {
+    width: 250px; /* Set a fixed width for the sidebar */
+    /* Other sidebar styles */
+}
+
+.content {
+    flex: 1; /* Allow content to take the remaining space */
+    padding: 20px; /* Add some padding */
+}
+
+.map-container {
+    margin-top: 20px; /* Add some space above the map */
+    height: 400px; /* Set a fixed height for the map */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column; /* Stack sidebar and content on smaller screens */
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar takes full width */
+    }
+
+    .content {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+}
